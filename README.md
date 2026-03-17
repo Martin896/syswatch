@@ -9,15 +9,15 @@ syswatch gives you a quick snapshot of your system's health in two lines:
 412 Available 32G Used / 468G  Total 8%
 ```
 
-- Memory: Parses /proc/meminfo to calculate used vs total RAM
-- Disk: Runs df -h and extracts root filesystem usage.
+- Memory: Parses `/proc/meminfo` to calculate used vs total RAM
+- Disk: Runs `df -h` and extracts root filesystem usage.
 
 # How it works 
-Memory data come from */proc/meminfo*, a linux virtual file maintained by Linux kernel. The program reads it as a string, iterates through each line, and extracts `*MemTotal*` and `*MemAvailable*` values. It converts from kilobyte to gigabyte and calculates usage percentage. 
+Memory data come from */proc/meminfo*, a linux virtual file maintained by Linux kernel. The program reads it as a string, iterates through each line, and extracts `MemTotal` and `MemAvailable` values. It converts from kilobyte to gigabyte and calculates usage percentage. 
 
-Disk data come from runniing the df command as a child process using `*std::process::Command*`, then parsing the output for the root `(/)` filesystem.
+Disk data come from runniing the df command as a child process using `std::process::Command`, then parsing the output for the root `(/)` filesystem.
 
-# Rcun it
+# Run it
 
 ```
 git clone https://github.com/Martin896/syswatch.git 
@@ -29,10 +29,10 @@ Requires a Rust and Linux system.
 # Built with 
 - Rust (standard Library only - no external dependencies)
 - Linux /proc filesystem
-- df system command 
+- `df` system command 
 
 # Roadmap 
-[] Add CPU usuage from /proc/stat
-[] Add network interface stats
-[] Continous monitoring mode with refresh interval
-[] colored ouput for warning threshold.
+[ ] Add CPU usuage from `/proc/stat`
+[ ] Add network interface stats
+[ ] Continous monitoring mode with refresh interval
+[ ] colored ouput for warning threshold.
