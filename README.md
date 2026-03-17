@@ -32,7 +32,7 @@ Requires a Rust and Linux system.
 - `df` system command 
 
 # Roadmap 
-[ ] Add CPU usuage from `/proc/stat`
-[ ] Add network interface stats
-[ ] Continous monitoring mode with refresh interval
-[ ] colored ouput for warning threshold.
+- [ ] Add CPU usuage from `/proc/stat`
+- [ ] Add network interface stats
+- [ ] Continous monitoring mode with refresh interval
+- [ ] colored ouput for warning threshold.
