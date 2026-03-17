@@ -1,7 +1,7 @@
 # Syswatch 
 A lightweight Linux System monitor CLI built in Rust. Reads real-time memory (RAM) and disk usage (HDD/SSD) directly from the kernel and system commands.
 
-# What it does
+## What it does
 
 syswatch gives you a quick snapshot of your system's health in two lines:
 ```
@@ -12,12 +12,12 @@ syswatch gives you a quick snapshot of your system's health in two lines:
 - Memory: Parses `/proc/meminfo` to calculate used vs total RAM
 - Disk: Runs `df -h` and extracts root filesystem usage.
 
-# How it works 
-Memory data come from */proc/meminfo*, a linux virtual file maintained by Linux kernel. The program reads it as a string, iterates through each line, and extracts `MemTotal` and `MemAvailable` values. It converts from kilobyte to gigabyte and calculates usage percentage. 
+## How it works 
+Memory data come from `/proc/meminfo`, a linux virtual file maintained by Linux kernel. The program reads it as a string, iterates through each line, and extracts `MemTotal` and `MemAvailable` values. It converts from kilobyte to gigabyte and calculates usage percentage. 
 
-Disk data come from runniing the df command as a child process using `std::process::Command`, then parsing the output for the root `(/)` filesystem.
+Disk data comes from running the `df` command as a child process using `std::process::Command`, then parsing the output for the root `(/)` filesystem.
 
-# Run it
+## Run it
 
 ```
 git clone https://github.com/Martin896/syswatch.git 
@@ -26,13 +26,13 @@ cargo run
 ```
 Requires a Rust and Linux system.
 
-# Built with 
+## Built with 
 - Rust (standard Library only - no external dependencies)
 - Linux /proc filesystem
 - `df` system command 
 
-# Roadmap 
-- [ ] Add CPU usuage from `/proc/stat`
+## Roadmap 
+- [ ] Add CPU usage from `/proc/stat`
 - [ ] Add network interface stats
-- [ ] Continous monitoring mode with refresh interval
-- [ ] colored ouput for warning threshold.
+- [ ] Continuous monitoring mode with refresh interval
+- [ ] colored output for warning threshold.
