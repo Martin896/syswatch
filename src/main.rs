@@ -48,4 +48,24 @@ fn main(){
             println!("{disk_available} Available {disk_used} Used  / {disk_total} Total {percent}")
         }
     }
+
+    // CPU USAGE
+
+    let cpu = fs::read_to_string("/proc/stat")
+    .expect("failed to read CPU info");
+    
+        for line in cpu.lines() {
+            if line.starts_with("cpu ") {
+           
+           let idle_time = line.split_whitespace().nth(4).unwrap().parse::<u64>().unwrap();
+           let total_time : u64 = line.split_whitespace()
+            .skip(1)
+            .map(|s| s.parse::<u64>().unwrap_or(0))
+            .sum();
+           let cpu_usage = ((total_time - idle_time) as f64 / total_time as f64 )* 100.0;
+
+        
+        println!("CPU usage {cpu_usage:.1}%");
+            }
+        }
 }
