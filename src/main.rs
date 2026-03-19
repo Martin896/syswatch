@@ -66,6 +66,20 @@ fn main(){
 
         
         println!("CPU usage {cpu_usage:.1}%");
+
+        if cpu_usage >= 60.0 && cpu_usage <= 85.0 {
+            println!("Elevated CPU usage, system is working hard");
+        }
+
+            else if cpu_usage >= 85.0 && cpu_usage <= 100.0{
+                println!("Critical!!, System may become unresponsive");
+                println!("Run htop in the terminal to see what processes are consuming resources");
+            } 
+            else {
+                println!("Everything is working fine.");
             }
+        
+            }
+            
         }
 }
