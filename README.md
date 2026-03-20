@@ -3,10 +3,11 @@ A lightweight Linux System monitor CLI built in Rust. Reads real-time memory (RA
 
 ## What it does
 
-syswatch gives you a quick snapshot of your system's health in two lines:
+syswatch gives you a quick snapshot of your system's health:
 ```
 8.4GB Used / 15.4GB Total 54%
 412 Available 32G Used / 468G  Total 8%
+CPU usage 15.3%
 ```
 
 - Memory: Parses `/proc/meminfo` to calculate used vs total RAM
@@ -34,5 +35,5 @@ Requires a Rust and Linux system.
 ## Roadmap 
 - [x] Add CPU usage from `/proc/stat`
 - [ ] Add network interface stats
-- [ ] Continuous monitoring mode with refresh interval
+- [ ] Continuous monitoring mode with refresh intervalare 
 - [ ] colored output for warning threshold.
